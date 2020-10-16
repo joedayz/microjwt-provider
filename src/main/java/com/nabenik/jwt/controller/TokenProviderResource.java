@@ -2,6 +2,9 @@ package com.nabenik.jwt.controller;
 
 import com.nabenik.jwt.auth.CypherService;
 import com.nabenik.jwt.auth.RolesEnum;
+import com.nabenik.jwt.dto.BaseResponse;
+import com.nabenik.jwt.dto.TokenResponse;
+import com.nabenik.jwt.util.Constantes;
 
 
 import javax.annotation.PostConstruct;
@@ -42,32 +45,31 @@ public class TokenProviderResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response doPosLogin(@FormParam("username") String username, @FormParam("password")String password,
+    public BaseResponse<TokenResponse> doPosLogin(@FormParam("username") String username, @FormParam("password")String password,
                                @Context HttpServletRequest request){
 
         List<String> target = new ArrayList<>();
         try {
             request.login(username, password);
 
-            if(request.isUserInRole(RolesEnum.MOBILE.getRole()))
-                target.add(RolesEnum.MOBILE.getRole());
+            if(request.isUserInRole(RolesEnum.USUARIO.getRole()))
+                target.add(RolesEnum.USUARIO.getRole());
 
-            if(request.isUserInRole(RolesEnum.WEB.getRole()))
-                target.add(RolesEnum.WEB.getRole());
+            if(request.isUserInRole(RolesEnum.ADMIN.getRole()))
+                target.add(RolesEnum.ADMIN.getRole());
 
         }catch (ServletException ex){
             ex.printStackTrace();
-            return Response.status(Response.Status.UNAUTHORIZED)
-                    .build();
+			return new BaseResponse<>(Constantes.API_ESTADO_ERROR, Constantes.MENSAJE_TOKEN_FALLIDO);
         }
 
         String token = cypherService.generateJWT(key, username, target);
 
-            return Response.status(Response.Status.OK)
-                    .header(AUTHORIZATION, "Bearer ".concat(token))
-                    .entity(token)
-                    .build();
+		TokenResponse tokenResponse = new TokenResponse();
+		tokenResponse.setToken(token);
 
+		return new BaseResponse<>(Constantes.API_ESTADO_EXITO, Constantes.MENSAJE_TOKEN_EXITO,
+				tokenResponse);
     }
 
 }

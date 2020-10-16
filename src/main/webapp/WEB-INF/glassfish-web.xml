@@ -2,11 +2,11 @@
 <!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
 <glassfish-web-app error-url="">
     <security-role-mapping>
-        <role-name>mobile</role-name>
-        <group-name>mobile</group-name>
+        <role-name>usuario</role-name>
+        <group-name>usuario</group-name>
     </security-role-mapping>
     <security-role-mapping>
-        <role-name>web</role-name>
-        <group-name>web</group-name>
+        <role-name>admin</role-name>
+        <group-name>admin</group-name>
     </security-role-mapping>
 </glassfish-web-app>

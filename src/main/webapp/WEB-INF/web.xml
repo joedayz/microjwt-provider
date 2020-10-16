@@ -8,9 +8,9 @@
         <realm-name>ecommerce</realm-name>
     </login-config>
     <security-role>
-        <role-name>web</role-name>
+        <role-name>usuario</role-name>
     </security-role>
     <security-role>
-        <role-name>mobile</role-name>
+        <role-name>admin</role-name>
     </security-role>
 </web-app>

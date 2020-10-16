@@ -1,8 +1,8 @@
 package com.nabenik.jwt.auth;
 
 public enum RolesEnum {
-	WEB("web"),
-	MOBILE("mobile");
+	USUARIO("usuario"),
+	ADMIN("admin");
 
 	private String role;
 

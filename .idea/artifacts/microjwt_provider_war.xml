@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="microjwt-provider:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>microjwt-provider</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="microjwt-provider.war">
+      <element id="artifact" artifact-name="microjwt-provider:war exploded" />
+    </root>
+  </artifact>
+</component>
