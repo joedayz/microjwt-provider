@@ -23,13 +23,13 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
   <component name="SbtLocalSettings">
     <option name="modificationStamps">
       <map>
-        <entry key="$USER_HOME$/Projects/learning-akka/ch1/akkademy-db-java" value="1472592442000" />
-        <entry key="$USER_HOME$/Projects/learning-akka/ch1/akkademy-db-scala" value="1472592442000" />
-        <entry key="$USER_HOME$/Projects/learning-akka/ch2/akkademy-db-scala" value="1472592442000" />
+        <entry key="$PROJECT_DIR$/../../learning-akka/ch1/akkademy-db-java" value="1472592442000" />
+        <entry key="$PROJECT_DIR$/../../learning-akka/ch1/akkademy-db-scala" value="1472592442000" />
+        <entry key="$PROJECT_DIR$/../../learning-akka/ch2/akkademy-db-scala" value="1472592442000" />
         <entry key="$USER_HOME$/akkademy-db" value="1472533435000" />
       </map>
     </option>

@@ -5,6 +5,7 @@ import com.nabenik.jwt.auth.RolesEnum;
 import com.nabenik.jwt.dto.BaseResponse;
 import com.nabenik.jwt.dto.TokenResponse;
 import com.nabenik.jwt.util.Constantes;
+import org.slf4j.Logger;
 
 
 import javax.annotation.PostConstruct;
@@ -28,6 +29,9 @@ import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 @Path("/auth")
 public class TokenProviderResource {
 
+	@Inject
+	private Logger logger;
+
     @Inject
     CypherService cypherService;
 
@@ -50,6 +54,7 @@ public class TokenProviderResource {
 
         List<String> target = new ArrayList<>();
         try {
+        	logger.debug("Validando con Los Siguientes Datos {} y {} ", username, password);
             request.login(username, password);
 
             if(request.isUserInRole(RolesEnum.USUARIO.getRole()))
@@ -59,6 +64,7 @@ public class TokenProviderResource {
                 target.add(RolesEnum.ADMIN.getRole());
 
         }catch (ServletException ex){
+			logger.debug("Error autenticandose: {}", ex.getMessage());
             ex.printStackTrace();
 			return new BaseResponse<>(Constantes.API_ESTADO_ERROR, Constantes.MENSAJE_TOKEN_FALLIDO);
         }

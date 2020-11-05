@@ -21,6 +21,9 @@
           <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.0.4" />
           <element id="library" level="project" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.65" />
           <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.65" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.7" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.7" />
         </element>
       </element>
       <element id="directory" name="META-INF">
